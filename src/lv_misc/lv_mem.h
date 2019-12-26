@@ -13,11 +13,7 @@ extern "C" {
 /*********************
  *      INCLUDES
  *********************/
-#ifdef LV_CONF_INCLUDE_SIMPLE
-#include "lv_conf.h"
-#else
-#include "../../../lv_conf.h"
-#endif
+#include "../lv_conf_internal.h"
 
 #include <stdint.h>
 #include <stddef.h>
@@ -64,6 +60,12 @@ typedef struct {
  * Initiaize the dyn_mem module (work memory and other variables)
  */
 void lv_mem_init(void);
+
+/**
+ * Clean up the memory buffer which frees all the allocated memories.
+ * @note It work only if `LV_MEM_CUSTOM == 0`
+ */
+void lv_mem_deinit(void);
 
 /**
  * Allocate a memory dynamically

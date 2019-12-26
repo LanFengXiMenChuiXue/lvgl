@@ -13,11 +13,7 @@ extern "C" {
 /*********************
  *      INCLUDES
  *********************/
-#ifdef LV_CONF_INCLUDE_SIMPLE
-#include "lv_conf.h"
-#else
-#include "../../../lv_conf.h"
-#endif
+#include "../lv_conf_internal.h"
 
 #if LV_USE_LMETER != 0
 
@@ -138,7 +134,7 @@ int16_t lv_lmeter_get_max_value(const lv_obj_t * lmeter);
  * @param lmeter pointer to a line meter object
  * @return number of the scale units
  */
-uint8_t lv_lmeter_get_line_count(const lv_obj_t * lmeter);
+uint16_t lv_lmeter_get_line_count(const lv_obj_t * lmeter);
 
 /**
  * Get the scale angle of a line meter
